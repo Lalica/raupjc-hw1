@@ -47,7 +47,7 @@ namespace Pong_projekt
         /// <summary >
         /// Generic list that holds Sprites that should be drawn on screen
         /// </ summary >
-        private IGenhericList<Sprite> SpritesForDrawList = new GenericList<Sprite>();
+        private IGenericList<Sprite> SpritesForDrawList = new GenericList<Sprite>();
 
         protected override void Initialize()
         {
@@ -185,7 +185,7 @@ namespace Pong_projekt
             if (CollisionDetector.Overlaps(Ball, Walls[0]) || CollisionDetector.Overlaps(Ball, Walls[1]))
             {
                 Vector2.Multiply(Ball.Direction, new Vector2(-1, 1));
-                Ball.Speed += Ball.BumpSpeedIncreaseFactor;
+                Ball.Speed *= Ball.BumpSpeedIncreaseFactor;
             }
 
             if(CollisionDetector.Overlaps(Ball, Goals[0]) || CollisionDetector.Overlaps(Ball, Goals[1]))
@@ -201,13 +201,13 @@ namespace Pong_projekt
             if(CollisionDetector.Overlaps(Ball, PaddleBottom))
             {
                 Vector2.Multiply(Ball.Direction,new Vector2(1, -1));
-                Ball.Speed += Ball.BumpSpeedIncreaseFactor;
+                Ball.Speed *= Ball.BumpSpeedIncreaseFactor;
             }
 
             if (CollisionDetector.Overlaps(Ball, PaddleTop))
             {
                 Vector2.Multiply(Ball.Direction, new Vector2(1, -1));
-                Ball.Speed += Ball.BumpSpeedIncreaseFactor;
+                Ball.Speed *= Ball.BumpSpeedIncreaseFactor;
             }
 
             base.Update(gameTime);

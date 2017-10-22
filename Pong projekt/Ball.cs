@@ -17,7 +17,8 @@ namespace Pong_projekt
             get => Speed;
             set
             {
-                if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
+                if (value <= 0){ throw new ArgumentOutOfRangeException(nameof(value));
+                }
                 Speed = value;
                 if (Speed > MaxSpeed) Speed = MaxSpeed;
             }
