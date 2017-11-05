@@ -5,12 +5,12 @@ namespace Pong_projekt
 {
     /// <summary >
     /// Represents player paddle .
-    /// </ summary >
+    /// </summary >
     public class Paddle : Sprite
     {
         /// <summary >
         /// Current paddle speed in time
-        /// </ summary >
+        /// </summary >
         public float Speed { get; set; }
         public Paddle(int width, int height, float initialSpeed) : base(width,
             height)
@@ -19,7 +19,7 @@ namespace Pong_projekt
         }
         /// <summary >
         /// Overriding draw method . Masking paddle texture with black color .
-        /// </ summary >
+        /// </summary >
         public override void DrawSpriteOnScreen(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, new Vector2(X, Y), new Rectangle(0, 0,

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
-using zadatak4;
+using zad2zad3;
 
 namespace Pong_projekt
 {
@@ -21,32 +21,32 @@ namespace Pong_projekt
 
         /// <summary >
         /// Bottom paddle object
-        /// </ summary >
+        /// </summary >
         public Paddle PaddleBottom { get; private set; }
         /// <summary >
         /// Top paddle object
-        /// </ summary >
+        /// </summary >
         public Paddle PaddleTop { get; private set; }
         /// <summary >
         /// Ball object
-        /// </ summary >
+        /// </summary >
         public Ball Ball { get; private set; }
         /// <summary >
         /// Background image
-        /// </ summary >
+        /// </summary >
         public Background Background { get; private set; }
         /// <summary >
         /// Sound when ball hits an obstacle .
         /// SoundEffect is a type defined in Monogame framework
-        /// </ summary >
+        /// </summary >
         public SoundEffect HitSound { get; private set; }
         /// <summary >
         /// Background music . Song is a type defined in Monogame framework
-        /// </ summary >
+        /// </summary >
         public Song Music { get; private set; }
         /// <summary >
         /// Generic list that holds Sprites that should be drawn on screen
-        /// </ summary >
+        /// </summary >
         private IGenericList<Sprite> SpritesForDrawList = new GenericList<Sprite>();
 
         protected override void Initialize()
@@ -59,7 +59,7 @@ namespace Pong_projekt
             PaddleBottom.Y = screenBounds.Bottom - PaddleBottom.Height;
             PaddleTop = new Paddle(GameConstants.PaddleDefaultWidth,
             GameConstants.PaddleDefaulHeight, GameConstants.PaddleDefaulSpeed);
-            PaddleTop.X = screenBounds.Width / 2f - PaddleTop.Width / 2f; ;
+            PaddleTop.X = screenBounds.Width / 2f - PaddleTop.Width / 2f;
             PaddleTop.Y = screenBounds.Top;
             Ball = new Ball(GameConstants.DefaultBallSize, GameConstants.DefaultInitialBallSpeed, GameConstants.DefaultBallBumpSpeedIncreaseFactor)
             {

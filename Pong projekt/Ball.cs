@@ -5,14 +5,14 @@ namespace Pong_projekt
 {
     /// <summary >
     /// Game ball object representation
-    /// </ summary >
+    /// </summary >
     public class Ball : Sprite
     {
         private const int MaxSpeed = 1;
 
         /// <summary >
         /// Defines current ball speed in time .
-        /// </ summary >
+        /// </summary >
         public float Speed {
             get => Speed;
             set
@@ -31,7 +31,7 @@ namespace Pong_projekt
         /// Using Vector2 to simplify game calculation . Potentially
         /// dangerous because vector 2 can swallow other values as well .
         /// OPTIONAL TODO : create your own , more suitable type
-        /// </ summary >
+        /// </summary >
         public Vector2 Direction { get; set; }
 
         public Ball(int size, float speed, float

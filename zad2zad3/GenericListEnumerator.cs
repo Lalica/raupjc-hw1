@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace zadatak4
+namespace zad2zad3
 {
     public class GenericListEnumerator<T> : IEnumerator<T>
     {
@@ -11,18 +10,18 @@ namespace zadatak4
         private T _current;
         public GenericListEnumerator(GenericList<T> genericList)
         {
-            this._genericList = genericList;
+            _genericList = genericList;
             _current = default(T);
             _atm = -1;
         }
 
-        public T Current{get{return _current;}set{_current = value;}}
+        public T Current { get { return _current; } set { _current = value; } }
 
         object IEnumerator.Current => _current;
 
         public void Dispose()
         {
-            this._genericList = null;
+            _genericList = null;
             _current = default(T);
             _atm = -1;
         }

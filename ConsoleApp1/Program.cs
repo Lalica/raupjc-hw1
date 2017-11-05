@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace zadatak4
+namespace ConsoleApp1
 {
     class Program
     {

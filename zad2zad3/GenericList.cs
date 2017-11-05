@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace zadatak4
+namespace zad2zad3
 {
     public class GenericList<X> : IGenericList<X>
     {
@@ -29,54 +29,49 @@ namespace zadatak4
             if (_lastIndex + 1 == _size)
             {
                 X[] hepler = _internalStorage;
-                _internalStorage = new X[_size*2];
+                _internalStorage = new X[_size * 2];
+                _size *= 2;
                 _lastIndex = -1;
-
                 foreach (X element in hepler)
                 {
+                    if (element.Equals(null)) break;
                     _lastIndex++;
                     _internalStorage[_lastIndex] = element;
-            
                 }
             }
-
             _lastIndex++;
             _internalStorage[_lastIndex] = item;
         }
 
         public bool Remove(X item)
         {
-            int i = -1;
-            foreach (X element in _internalStorage)
+            try
             {
-                i++;
-                if (element.Equals(item))
-                {
-                    return RemoveAt(i);
-                }
+                return RemoveAt(IndexOf(item));
             }
-
-            return false;
+            catch (IndexOutOfRangeException ex)
+            {
+                return false;
+            }
         }
 
         public bool RemoveAt(int index)
         {
-            if (index + 1 >= _size)
+            if (index > _lastIndex || index < 0)
             {
                 throw new IndexOutOfRangeException();
             }
-            X[] helper = _internalStorage;
-            for (int i = index + 1; i < _size; i++)
+            for (int i = index + 1; i <= _lastIndex; i++)
             {
-                _internalStorage[index] = helper[i];
-                index++;
+                _internalStorage[i - 1] = _internalStorage[i];
             }
+            _lastIndex--;
             return true;
         }
 
         public X GetElement(int index)
         {
-            if (index < _size && index >= -1)
+            if (index <= _lastIndex && index > -1)
             {
                 return _internalStorage[index];
             }
@@ -85,11 +80,10 @@ namespace zadatak4
 
         public int IndexOf(X item)
         {
-            int i = -1;
-            foreach (X element in _internalStorage)
+            if (_lastIndex == -1) return -1;
+            for (int j = 0; j <= _lastIndex; j++)
             {
-                i++;
-                if (element.Equals(item)) return i;
+                if (_internalStorage[j].Equals(item)) return j;
             }
             return -1;
         }
@@ -119,4 +113,3 @@ namespace zadatak4
         }
     }
 }
-
